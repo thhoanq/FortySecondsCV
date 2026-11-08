@@ -1,0 +1,156 @@
+% !TEX program = xelatex
+% CV - Huy-Hoang Trinh - Multi-core SoC & Hardware Security Design (Viettel)
+% Built on FortySecondsCV (BSD-3, René Wirnata). Compile with XeLaTeX:
+%   xelatex cv_viettel.tex
+\documentclass[
+	a4paper,
+	profilepicsize=3.2cm,
+	profilepicstyle=profilecircle,
+	datecolwidth=0.185\textwidth,
+	topbottommargin=0.02\paperheight,
+]{fortysecondscv}
+
+\usepackage{microtype}
+\usepackage{ragged2e}
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+\usepackage[sfdefault]{ClearSans}
+
+% tighter section headings for a one-page layout
+\titleformat{\section}{\color{sectioncolor}\normalfont\bfseries\Large}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.1ex}{0.6ex}
+
+% publication item without the extra trailing \vspace of the class version,
+% so spacing between papers matches the other sections
+\renewcommand{\cvpubitem}[4]{%
+	\parbox[t]{\datecolwidth}{\raggedright #4} &
+	\parbox[t]{0.98\textwidth-\datecolwidth}{\RaggedRight\hyphenpenalty=10000\exhyphenpenalty=10000
+		\textbf{#1} \par \textit{#2} \par #3%
+	}\\
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\cvname{Huy-Hoang Trinh}
+\cvjobtitle{SoC and Hardware Security\\[0.2em] Design Engineer}
+\cvprofilepic{pics/thh-photo-crop.jpg}
+
+\cvbirthday{January 14, 2003}
+\cvaddress{Thu Duc City, Ho Chi Minh City}
+\cvphone{+84 389 814 487}
+\cvsite{https://github.com/thhoanq}
+\cvmail{thhoang@hcmus.edu.vn}
+
+%-------------------------------------------------------------------------------
+%                                  SIDEBAR
+%-------------------------------------------------------------------------------
+\addtofrontsidebar{
+	\RaggedRight
+
+	\sidesection{About Me}
+	\aboutme{
+		M.Sc. student in IC design and researcher at DESLab since 2023.
+		I build multi-core RISC-V SoCs with cryptographic accelerators, from RTL
+		and SoC integration to FPGA bring-up, bare-metal firmware and GDS.
+	}
+
+	\sidesection{Education}
+	\textbf{M.Sc., Microelectronics and IC Design}\\
+	University of Science, VNU-HCM\\
+	10/2025 -- now\\[0.5em]
+	\textbf{B.Sc., Electronics --\\ Telecommunications Engineering}\\
+	University of Science, VNU-HCM\\
+	10/2021 -- 10/2025 \quad GPA: 8.94/10
+
+	\sidesection{Hard Skills}
+	\skill{\faMicrochip}{SoC: Chipyard, LiteX, NoC}
+	\skill{\faShield*}{Crypto HW: PQC \& lightweight ciphers}
+	\skill{\faCode}{Verilog, Chisel, C/C++}
+	\skill{\faCheckSquare}{Verification: Cadence Xcelium}
+	\skill{\faCogs}{Tools: Vivado, Synopsys DC/ICC2}
+
+	\sidesection{Soft Skills}
+	\skill{\faSearch}{Independent research \& technical writing}
+	\skill{\faUsers}{Teamwork \& mentoring students}
+	\skill{\faChalkboardTeacher}{Teaching \& presenting}
+}
+
+%-------------------------------------------------------------------------------
+%                                MAIN COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Experience}
+\begin{cvtable}[1.5]
+	\cvitem{03/2023 -- now}{Research Assistant}{DESLab, HCMUS}{
+		Research on RISC-V SoCs, cryptographic accelerators and Network-on-Chip
+		interconnects.}
+	\cvitem{12/2025 -- now}{Teaching Assistant}{Fac. of Electronics \& Telecom., HCMUS}{
+		In charge of laboratory courses; co-supervise and review B.Sc. theses
+		and seminars.}
+\end{cvtable}
+
+\cvsection{Research Projects}
+\begin{cvtable}[1.5]
+	\cvitem{10/2025 -- now}{Post-Quantum secure-boot SoC}{M.Sc. thesis}{
+		Chipyard SoC on Arty A7-100T with Dilithium, Ascon and TRNG
+		accelerators for authenticated firmware update, targeting
+		fault-injection resistance; taken through synthesis and P\&R to GDS.}
+	\cvitem{2024 -- 2025}{Multi-core RISC-V SoC on NoC with crypto cores}{B.Sc. thesis}{
+		Four 64-bit Rocket cores, a NoC and KLEIN, ChaCha20, SHA3 accelerators on Xilinx VC707; bare-metal multi-hart and crypto-core firmware. Published at ATC 2025.}
+	\cvitem{06/2024}{32-bit RISC-V data-security SoC}{DESLab}{
+		VexRiscv with KLEIN and BLAKE2s cores on DE0-Nano FPGA, also targeted
+		at SKY130. Published at REV-ECIT 2024.}
+	\cvitem{2023}{IoT firmware encryption \& authentication}{IC design contest}{
+		Hardware security system that encrypts and authenticates IoT firmware.}
+\end{cvtable}
+
+\cvsection{Other Projects}
+\begin{cvtable}[1.5]
+	\cvitem{10/2026}{Ascon lightweight cryptography accelerator}{Verilog}{
+		Iterative architecture supporting both Ascon AEAD and Ascon-Hash
+		(NIST lightweight cryptography standard).}
+	\cvitem{09/2024}{8-bit shift register, digital flow}{Synopsys, 14 nm}{
+		Synthesis to layout with the Synopsys toolchain.}
+	\cvitem{03/2024}{KLEIN lightweight cryptography accelerator}{Verilog}{
+		Implementation of the KLEIN block-cipher algorithm, verified with a
+		self-written testbench in ModelSim.}
+\end{cvtable}
+
+\cvsection{Publications}
+\begin{cvtable}[1.5]
+	\cvpubitem{Design a Homogeneous Multi-Core SoC Based on NoC with Lightweight
+		Cryptography Cores in FPGA}
+		{\textbf{H.-H. Trinh}, K.-M. Ma, T.-B.-T. Cao, D.-H. Le}
+		{International Conference on Advanced Technologies for Communications (\mbox{ATC 2025})}{2025}
+	\cvpubitem{Thiết kế hệ thống bảo mật dữ liệu dựa trên CPU RISC-V 32-bit
+		trên FPGA và công nghệ SKY130}
+		{T.-N.-T. Nhi, \textbf{H.-H. Trinh}, K.-M. Ma, D.-H. Le}
+		{The 27th National Conference on Electronics, Communications and Information Technology (\mbox{REV-ECIT 2024})}{2024}
+\end{cvtable}
+
+\cvsection{Awards \& Certifications}
+\begin{cvtable}[1.3]
+	\cvitem{07/2026}{Cadence Verification with Xcelium and Verisium Training}{Cadence Vietnam}{}
+	\cvitem{07/2025}{TOEIC Speaking \& Writing: 260/400}{ETS}{}
+	\cvitem{10/2024}{TOEIC Listening \& Reading: 675/990}{ETS}{}
+	\cvitem{2023}{Encouragement Prize, 1st IC Design Contest for Smart Cities}{Saigon Hi-Tech Park}{}
+\end{cvtable}
+
+\cvsection{Academic Activities}
+\begin{cvtable}[1.3]
+	\cvitem{08/2026}{Eindhoven Semicon Summer School}{TU/e, Netherlands}{
+		Group project: Fourier-domain DSP for radio astronomy.}
+	\cvitem{05/2025}{SEMI TECH Zoomer Bootcamp}{NUS, Singapore}{
+		Group project: ThermaSense AI.}
+\end{cvtable}
+
+\end{document}
